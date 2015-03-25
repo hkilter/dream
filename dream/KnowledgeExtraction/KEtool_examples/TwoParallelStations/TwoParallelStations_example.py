@@ -88,8 +88,10 @@ def main(test=0, ExcelFileName='KEtool_examples/TwoParallelStations/inputData.xl
     
     #calls ManPy main script with the input   
     simulationOutput=ManPyMain.main(input_data=json.dumps(data))
+
+    # if we run from test return the ManPy result
     if test:
-        return json.dumps(simulationOutput, indent=True)
+        return simulationOutput
     
     #=================== Calling the ExcelOutput object, outputs the outcomes of the statistical analysis in xls files ==========================#
     # save the KE output in xls
