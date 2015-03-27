@@ -78,7 +78,7 @@ def main(test=0, ExcelFileName='KEtool_examples/TwoParallelStations/inputData.xl
         
     #================================ Call ManPy and run the simulation model =============================================#
     #calls ManPy main script with the input
-    simulationOutput=ManPyMain.main(input_data=json.dumps(data))
+    simulationOutput=ManPyMain.main(input_data=json.dumps(data2))
     
     # if we run from test return the ManPy result
     if test:
