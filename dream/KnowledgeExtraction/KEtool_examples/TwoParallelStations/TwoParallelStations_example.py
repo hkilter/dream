@@ -31,15 +31,16 @@ from dream.KnowledgeExtraction.JSONOutput import JSONOutput
 import xlrd
 import json
 import dream.simulation.LineGenerationJSON as ManPyMain #import ManPy main JSON script
+import os
 
-def main(test=0, ExcelFileName='KEtool_examples/TwoParallelStations/inputData.xls',
-                JSONFileName='KEtool_examples/TwoParallelStations/JSON_ParallelStations.json',
+def main(test=0, ExcelFileName='inputData.xls',
+                JSONFileName='JSON_ParallelStations.json',
                 workbook=None,
                 jsonFile=None):
-   
+    
     #Read from the given directory the Excel document with the input data
     if not workbook:
-        workbook = xlrd.open_workbook(ExcelFileName)
+        workbook = xlrd.open_workbook(os.path.join(os.path.dirname(os.path.realpath(__file__)), ExcelFileName))
     worksheets = workbook.sheet_names()
     worksheet_ProcessingTimes = worksheets[0]     #Define the worksheet with the Processing times data
     
@@ -64,7 +65,7 @@ def main(test=0, ExcelFileName='KEtool_examples/TwoParallelStations/inputData.xl
     
     #======================= Output preparation: output the updated values in the JSON file of this example ================================#
     if not jsonFile:
-        jsonFile = open(JSONFileName,'r')      #It opens the JSON file 
+        jsonFile = open(os.path.join(os.path.dirname(os.path.realpath(__file__)), JSONFileName),'r')      #It opens the JSON file 
         data = json.load(jsonFile)                                                              #It loads the file
         jsonFile.close()
     else:
