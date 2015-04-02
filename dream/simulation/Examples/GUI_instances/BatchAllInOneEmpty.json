@@ -444,11 +444,7 @@
             "id": {
               "default": "M", 
               "required": true, 
-              "type": "string"
-            }, 
-            "name": {
-              "default": "Machine", 
-              "name": "Name", 
+			  "name": "Name", 
               "type": "string"
             }, 
             "processingTime": {
