@@ -73,6 +73,7 @@ class ACO(plugin.ExecutionPlugin):
     seedPlus = 0
     for i in range(int(data["general"]["numberOfGenerations"])):
         scenario_list = [] # for the distributor
+        print 'generation',i
         # number of ants created per generation
         for j in range(int(data["general"]["numberOfAntsPerGenerations"])):
             # an ant dictionary to contain rule to queue assignment information
